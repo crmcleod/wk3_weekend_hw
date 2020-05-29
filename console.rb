@@ -12,6 +12,10 @@ require('pry-byebug')
     film2 = Film.new({'title' => 'Amityville Horror', 'price' => 10})
     film3 = Film.new({'title' => 'Deadpool','price' => 12})
 
+    film1.save()
+    film2.save()
+    film3.save()
+
     customer1 = Customer.new({'name' => 'Hugh Jackman', 'funds' => 100})
     customer2 = Customer.new({'name' => 'Jason Statham','funds' => 125})
     customer3 = Customer.new({'name' => 'Christian Bale', 'funds' => 150})
