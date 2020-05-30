@@ -40,7 +40,9 @@ Customer.delete_all()
     ticket6.save()
     ticket7.save()
 
-
+    customer1_films = customer1.films()
+    customer2_films = customer2.films()
+    customer3_films = customer3.films()
 
 binding.pry
 nil

@@ -25,10 +25,11 @@ class Ticket
         SqlRunner.run(sql, values)
     end
 
+
     # Will this always give a foreign key constraint error?
     def update
         sql = 'UPDATE tickets SET (customer_id, film_id) = ($1, $2) WHERE id = $3'
-        values = [@customer_id, @film_id, @id]
+        values = [@film_id, @customer_id, @id]
         SqlRunner.run(sql, values)
     end
 
