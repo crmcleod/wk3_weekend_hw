@@ -44,5 +44,9 @@ Customer.delete_all()
     customer2_films = customer2.films()
     customer3_films = customer3.films()
 
+    customer1_tickets = customer1.tickets()
+    customer2_tickets = customer2.tickets()
+    customer3_tickets = customer3.tickets()
+
 binding.pry
 nil

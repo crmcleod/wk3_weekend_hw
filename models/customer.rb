@@ -30,6 +30,21 @@ class Customer
         SqlRunner.run(sql, values)
     end
 
+    def tickets()
+        sql = 'SELECT tickets.* FROM tickets
+        INNER JOIN customers ON customers.id = tickets.customer_id
+        WHERE customer_id = $1'
+        values = [@id]
+        customer_tickets = SqlRunner.run(sql, values)
+        return Ticket.map_items(customer_tickets)
+    end
+
+    def number_of_tickets()
+        return tickets.length
+    end
+
+
+
 
 
     def films()
