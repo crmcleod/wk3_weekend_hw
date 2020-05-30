@@ -45,8 +45,12 @@ Customer.delete_all()
     customer3_films = customer3.films()
 
     customer1_tickets = customer1.tickets()
+    customer1.pay_tickets()
     customer2_tickets = customer2.tickets()
+    customer2.pay_tickets()
     customer3_tickets = customer3.tickets()
+    customer3.pay_tickets()
+
 
     customer1_number_of_tickets = customer1.number_of_tickets()
     customer2_number_of_tickets = customer2.number_of_tickets()
@@ -55,6 +59,10 @@ Customer.delete_all()
     film1_number_of_customers = film1.number_of_customers_seeing_film()
     film2_number_of_customers = film2.number_of_customers_seeing_film()
     film3_number_of_customers = film3.number_of_customers_seeing_film()
+
+    customer1_cost_for_customers_tickets = customer1.cost_for_customers_tickets()
+    customer2_cost_for_customers_tickets = customer2.cost_for_customers_tickets()
+    customer3_cost_for_customers_tickets = customer3.cost_for_customers_tickets()
 
 binding.pry
 nil

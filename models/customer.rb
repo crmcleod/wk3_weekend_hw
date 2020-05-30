@@ -37,14 +37,22 @@ class Customer
         values = [@id]
         customer_tickets = SqlRunner.run(sql, values)
         return Ticket.map_items(customer_tickets)
+
     end
 
+    def cost_for_customers_tickets()
+        ticket_prices = films.map { |film| film.price.to_i}
+        return ticket_prices.reduce(0) { |total, price| total + price}
+    end
+
+    def pay_tickets
+        @funds -= cost_for_customers_tickets
+        update()
+    end
+         
     def number_of_tickets()
         return tickets.length
     end
-
-
-
 
 
     def films()
@@ -71,5 +79,7 @@ class Customer
         result = data.map{|customer| Customer.new(customer)}
         return result
     end
+
+
 
 end
