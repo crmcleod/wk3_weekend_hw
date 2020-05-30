@@ -19,6 +19,12 @@ class Ticket
         @id = ticket['id'].to_i
     end
 
+    def delete
+        sql = 'DELETE FROM tickets WHERE id = $1'
+        values = [@id]
+        SqlRunner.run(sql, values)
+    end
+
     # Will this always give a foreign key constraint error?
     def update
         sql = 'UPDATE tickets SET (customer_id, film_id) = ($1, $2) WHERE id = $3'
