@@ -19,6 +19,7 @@ class Ticket
         @id = ticket['id'].to_i
     end
 
+    # Will this always give a foreign key constraint error?
     def update
         sql = 'UPDATE tickets SET (customer_id, film_id) = ($1, $2) WHERE id = $3'
         values = [@customer_id, @film_id, @id]
