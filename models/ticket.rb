@@ -10,7 +10,7 @@ class Ticket
         @id = options['id'].to_i if options['id']
         @customer_id = options['customer_id'].to_i
         @film_id = options['film_id'].to_i
-        @screening_Id = options['screening_id'].to_i
+        @screening_id = options['screening_id'].to_i
     end
 
     def save
@@ -28,7 +28,7 @@ class Ticket
 
     def update
         sql = 'UPDATE tickets SET (customer_id, film_id, screening_id) = ($1, $2, $3) WHERE id = $4'
-        values = [@film_id, @customer_id, @screening_id, @id]
+        values = [@film_id, @customer_id, @screening_id,@id]
         SqlRunner.run(sql, values)
     end
 

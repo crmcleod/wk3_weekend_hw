@@ -50,6 +50,8 @@ Customer.delete_all()
     screening8.save()
     screening9.save()
 
+    all_show_times = Screening.show_times()
+
     ticket1 = Ticket.new({'film_id' => film1.id, 'customer_id' => customer1.id, 'screening_id' => screening1.id})
     ticket2 = Ticket.new({'film_id' => film2.id, 'customer_id' => customer1.id, 'screening_id' => screening4.id})
     ticket3 = Ticket.new({'film_id' => film3.id, 'customer_id' => customer1.id, 'screening_id' => screening7.id})
@@ -73,6 +75,7 @@ Customer.delete_all()
     ticket8.save()
     ticket9.save()
     ticket10.save()
+    ticket11.save()
 
     customer1_films = customer1.films()
     customer2_films = customer2.films()

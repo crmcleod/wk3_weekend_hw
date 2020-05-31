@@ -18,6 +18,27 @@ class Screening
         @id = screening['id'].to_i
     end
 
+    def self.tickets()
+        sql = 'SELECT screenings.show_time, screenings.id as screening_id, tickets.film_id, tickets.customer_id from screenings
+        INNER JOIN tickets ON
+        screenings.id = tickets.screening_id;'
+        all_tickets = SqlRunner.run(sql)
+        return all_tickets.map{|ticket| ticket}
+    end
+    
+    def self.total_tickets_sold()
+        return tickets.length
+        en
+        
+
+    def self.show_times
+        sql = 'SELECT films.title, screenings.show_time FROM films
+        INNER JOIN screenings ON
+        films.id = screenings.film_id'
+        screening_times = SqlRunner.run(sql)
+        return screening_times.map{|time| time}
+    end
+
     def delete
         sql = 'DELETE FROM screenings WHERE id = $1'
         values = [@id]
