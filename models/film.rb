@@ -25,6 +25,19 @@ class Film
         SqlRunner.run(sql, values)
     end
 
+    def most_popular_screening_time
+# RETURNS FAR TOO MUCH INFO AT THE MOMENT
+
+        # SELECT tickets.screening_id, screenings.show_time, films.title, COUNT(*) AS occurrence
+        # FROM tickets
+        # INNER JOIN films ON
+        # films.id = tickets.film_id
+        # INNER JOIN screenings ON
+        # screenings.film_id = films.id
+        # GROUP BY tickets.screening_id, films.title, screenings.show_time
+        # ORDER BY occurrence DESC;
+    end
+
     def delete
         sql = 'DELETE FROM films WHERE id = $1'
         values = [@id]

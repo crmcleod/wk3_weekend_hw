@@ -26,9 +26,10 @@ class Screening
         return all_tickets.map{|ticket| ticket}
     end
     
+
     def self.total_tickets_sold()
         return tickets.length
-        en
+    end
         
 
     def self.show_times
