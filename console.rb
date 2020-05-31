@@ -101,6 +101,9 @@ Customer.delete_all()
     customer2_cost_for_customers_tickets = customer2.cost_for_customers_tickets()
     customer3_cost_for_customers_tickets = customer3.cost_for_customers_tickets()
 
+    most_popular_time_for_film1 = Film.most_popular_screening_time('Blade Trinity')
+    most_popular_time_for_film2 = Film.most_popular_screening_time('Amityville Horror')
+    most_popular_time_for_film3 = Film.most_popular_screening_time('Deadpool')
 
 binding.pry
 nil

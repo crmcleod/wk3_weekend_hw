@@ -25,17 +25,19 @@ class Film
         SqlRunner.run(sql, values)
     end
 
-    def most_popular_screening_time
-# RETURNS FAR TOO MUCH INFO AT THE MOMENT
-
-        # SELECT tickets.screening_id, screenings.show_time, films.title, COUNT(*) AS occurrence
-        # FROM tickets
-        # INNER JOIN films ON
-        # films.id = tickets.film_id
-        # INNER JOIN screenings ON
-        # screenings.film_id = films.id
-        # GROUP BY tickets.screening_id, films.title, screenings.show_time
-        # ORDER BY occurrence DESC;
+    # horrible coding below
+    def self.most_popular_screening_time(film_to_find)
+        sql = 'SELECT screenings.show_time, films.title, COUNT(*) AS occurrence
+        FROM tickets
+        INNER JOIN films ON
+        films.id = tickets.film_id
+        INNER JOIN screenings ON
+        screenings.film_id = films.id
+        GROUP BY tickets.screening_id, films.title, screenings.show_time
+        ORDER BY occurrence DESC;'
+        sorted_screening_times = SqlRunner.run(sql)
+        return sorted_screening_times.find_all{|film| film['title'] == film_to_find}[0]['show_time']
+        
     end
 
     def delete
